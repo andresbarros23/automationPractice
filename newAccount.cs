@@ -39,10 +39,10 @@ namespace automationpractice
             driver.FindElement(By.Id("phone_mobile")).SendKeys("7123912345");
             driver.FindElement(By.Id("alias")).SendKeys("andres23");
             driver.FindElement(By.Id("submitAccount")).Click();
-            driver.FindElement(By.ClassName("info-account")); //If this class is presented, the user is logged
+            string accountCreated = driver.FindElement(By.ClassName("info-account")).Text;
+            Assert.AreEqual("Welcome to your account. Here you can manage all of your personal information and orders.", accountCreated);
             driver.FindElement(By.ClassName("logout")).Click();
-            driver.FindElement(By.ClassName("login")); //If this class is presented, the user is not logged
-
+            
         }
 
         [TestCleanup]
