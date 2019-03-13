@@ -32,6 +32,9 @@ namespace automationpractice.Classes
         [FindsBy(How = How.Id, Using = "submitMessage")]
         private IWebElement submitButton;
 
+        [FindsBy(How = How.CssSelector, Using = "p.alert.alert-success")]
+        private IWebElement successMessage;
+
         public SelectElement getDropdownElement()
         {
             SelectElement selectElement = new SelectElement(driver.FindElement(By.Id("id_contact")));
@@ -49,7 +52,7 @@ namespace automationpractice.Classes
 
         public String GetSuccessMessage()
         {
-            return driver.FindElement(By.XPath("//*[@id=\"center_column\"]/p")).Text;
+            return successMessage.Text;
         }
     }
 }
